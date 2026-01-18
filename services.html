@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Projects | Deck Connect LLC - Portfolio Gallery</title>
-    <meta name="description" content="Browse our portfolio of custom decks, pergolas, fencing, and outdoor living projects in Northern Illinois & Southern Wisconsin.">
+    <title>Our Services | Deck Connect LLC - Decks, Fencing, Pergolas & More</title>
+    <meta name="description" content="Professional deck building, fencing, pergolas, covered decks, deck staining, and hardscape services in Northern Illinois & Southern Wisconsin.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -240,131 +240,63 @@
             margin: 0 auto;
         }
 
-        /* Filter Navigation */
-        .filter-nav {
-            padding: 30px 0;
+        /* Service Navigation */
+        .service-nav {
             background: var(--white);
+            padding: 20px 0;
             position: sticky;
             top: 108px;
             z-index: 100;
             box-shadow: 0 4px 20px var(--shadow);
         }
 
-        .filter-nav .container {
+        .service-nav .container {
             display: flex;
             justify-content: center;
             gap: 15px;
             flex-wrap: wrap;
         }
 
-        .filter-btn {
-            padding: 12px 28px;
+        .service-nav a {
+            padding: 12px 24px;
             background: var(--cream);
-            border: none;
             border-radius: 50px;
-            font-family: 'Inter', sans-serif;
+            text-decoration: none;
+            color: var(--charcoal);
             font-size: 14px;
             font-weight: 700;
-            color: var(--charcoal);
-            cursor: pointer;
             transition: all 0.3s;
         }
 
-        .filter-btn:hover,
-        .filter-btn.active {
+        .service-nav a:hover,
+        .service-nav a.active {
             background: var(--wood-medium);
             color: var(--white);
         }
 
-        /* Gallery Section */
-        .gallery {
-            padding: 80px 0 120px;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            cursor: pointer;
-            box-shadow: 0 10px 40px var(--shadow);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px var(--shadow-medium);
-        }
-
-        .gallery-item.featured {
-            grid-column: span 2;
-            grid-row: span 2;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            min-height: 300px;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .gallery-item.featured img {
-            min-height: 630px;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .gallery-overlay {
-            display: none;
-        }
-
-        .gallery-tag {
-            display: none;
-        }
-
-        /* Stats Section */
-        .stats-section {
-            padding: 100px 0;
-            background: var(--navy);
-            color: var(--white);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-            text-align: center;
-        }
-
-        .stat-item strong {
-            display: block;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 56px;
-            color: var(--accent);
-            line-height: 1;
-            margin-bottom: 10px;
-        }
-
-        .stat-item span {
-            font-size: 15px;
-            color: rgba(255, 255, 255, 0.7);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* Testimonials */
-        .testimonials {
+        /* Service Section */
+        .service-section {
             padding: 120px 0;
+            scroll-margin-top: 180px;
+        }
+
+        .service-section:nth-child(even) {
             background: var(--cream);
+        }
+
+        .service-section .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .service-section:nth-child(even) .service-content {
+            order: 2;
+        }
+
+        .service-section:nth-child(even) .service-gallery {
+            order: 1;
         }
 
         .section-label {
@@ -386,80 +318,196 @@
             background: var(--wood-medium);
         }
 
-        .testimonials-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .testimonials-header h2 {
+        .service-content h2 {
             font-family: 'Montserrat', sans-serif;
             font-size: clamp(32px, 3vw, 44px);
             font-weight: 700;
             color: var(--charcoal);
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .testimonial-card {
-            background: var(--white);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px var(--shadow);
-        }
-
-        .testimonial-stars {
-            display: flex;
-            gap: 4px;
             margin-bottom: 20px;
+            line-height: 1.2;
         }
 
-        .testimonial-stars svg {
-            width: 20px;
-            height: 20px;
-            fill: var(--accent);
-        }
-
-        .testimonial-card p {
-            font-size: 16px;
+        .service-content > p {
+            font-size: 17px;
             color: var(--charcoal-light);
-            font-style: italic;
             margin-bottom: 25px;
-            line-height: 1.8;
         }
 
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 15px;
+        .service-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 35px;
         }
 
-        .testimonial-avatar {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--wood-light), var(--wood-medium));
-            border-radius: 50%;
+        .service-feature {
             display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .service-feature svg {
+            width: 24px;
+            height: 24px;
+            min-width: 24px;
+            color: var(--wood-medium);
+            margin-top: 2px;
+        }
+
+        .service-feature span {
+            font-size: 15px;
+            color: var(--charcoal);
+            font-weight: 500;
+        }
+
+        .btn {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 20px;
+            gap: 10px;
+            padding: 18px 36px;
+            border-radius: 50px;
+            font-size: 15px;
             font-weight: 700;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--navy);
+            color: var(--white);
+            box-shadow: 0 8px 30px var(--shadow-medium);
+        }
+
+        .btn-primary:hover {
+            background: var(--wood-medium);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(166, 124, 82, 0.35);
+        }
+
+        .btn svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.3s;
+        }
+
+        .btn:hover svg {
+            transform: translateX(4px);
+        }
+
+        .service-gallery {
+            position: relative;
+        }
+
+        .gallery-main {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px var(--shadow-medium);
+        }
+
+        .gallery-main img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-badge {
+            position: absolute;
+            bottom: -25px;
+            right: -25px;
+            background: var(--wood-medium);
+            color: var(--white);
+            padding: 25px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(166, 124, 82, 0.3);
+        }
+
+        .gallery-badge strong {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            line-height: 1;
+        }
+
+        .gallery-badge span {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+        }
+
+        /* Materials Section */
+        .materials {
+            padding: 100px 0;
+            background: var(--navy);
             color: var(--white);
         }
 
-        .testimonial-info strong {
-            display: block;
-            font-size: 16px;
-            color: var(--charcoal);
+        .materials .section-label {
+            color: var(--accent);
         }
 
-        .testimonial-info span {
+        .materials .section-label::before {
+            background: var(--accent);
+        }
+
+        .materials-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .materials-header h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(32px, 3vw, 44px);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .materials-header p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 17px;
+        }
+
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .material-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 35px;
+            text-align: center;
+            transition: all 0.4s;
+        }
+
+        .material-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .material-card img {
+            height: 50px;
+            width: auto;
+            margin-bottom: 20px;
+            filter: brightness(0) invert(1);
+            opacity: 0.8;
+        }
+
+        .material-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .material-card p {
             font-size: 14px;
-            color: var(--charcoal-light);
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.6;
         }
 
         /* CTA Section */
@@ -498,40 +546,13 @@
             position: relative;
         }
 
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 18px 36px;
-            border-radius: 50px;
-            font-size: 15px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            border: none;
-            position: relative;
-        }
-
-        .btn-primary {
+        .cta .btn-primary {
             background: var(--white);
             color: var(--wood-dark);
-            box-shadow: 0 8px 30px var(--shadow-medium);
         }
 
-        .btn-primary:hover {
+        .cta .btn-primary:hover {
             background: var(--cream);
-            transform: translateY(-3px);
-        }
-
-        .btn svg {
-            width: 18px;
-            height: 18px;
-            transition: transform 0.3s;
-        }
-
-        .btn:hover svg {
-            transform: translateX(4px);
         }
 
         /* Footer */
@@ -670,75 +691,6 @@
             color: var(--accent);
         }
 
-        /* Lightbox */
-        .lightbox {
-            position: fixed;
-            inset: 0;
-            background: rgba(45, 42, 38, 0.95);
-            z-index: 3000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.4s;
-        }
-
-        .lightbox.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .lightbox-content {
-            max-width: 90%;
-            max-height: 90%;
-            position: relative;
-        }
-
-        .lightbox-content img {
-            max-width: 100%;
-            max-height: 85vh;
-            border-radius: 12px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: -50px;
-            right: 0;
-            width: 40px;
-            height: 40px;
-            background: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .lightbox-close:hover {
-            background: var(--wood-medium);
-            color: var(--white);
-        }
-
-        .lightbox-close svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        .lightbox-info {
-            display: none;
-        }
-
-        .lightbox-info h3 {
-            display: none;
-        }
-
-        .lightbox-info p {
-            display: none;
-        }
-
         /* Animations */
         .animate-on-scroll {
             opacity: 0;
@@ -757,17 +709,8 @@
                 padding: 0 30px;
             }
             
-            .gallery-grid {
+            .materials-grid {
                 grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .gallery-item.featured {
-                grid-column: span 2;
-                grid-row: span 1;
-            }
-            
-            .gallery-item.featured img {
-                min-height: 400px;
             }
         }
 
@@ -780,19 +723,21 @@
                 display: flex;
             }
             
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .service-section .container {
+                grid-template-columns: 1fr;
+                gap: 50px;
             }
             
-            .testimonials-grid {
-                grid-template-columns: 1fr;
+            .service-section:nth-child(even) .service-content,
+            .service-section:nth-child(even) .service-gallery {
+                order: unset;
             }
             
             .footer-grid {
                 grid-template-columns: 1fr 1fr;
             }
             
-            .filter-nav {
+            .service-nav {
                 top: 80px;
             }
         }
@@ -806,34 +751,30 @@
                 padding: 150px 0 80px;
             }
             
-            .gallery {
-                padding: 60px 0 80px;
-            }
-            
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .gallery-item.featured {
-                grid-column: span 1;
-            }
-            
-            .gallery-item.featured img,
-            .gallery-item img {
-                min-height: 280px;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .stat-item strong {
-                font-size: 42px;
-            }
-            
-            .testimonials {
+            .service-section {
                 padding: 80px 0;
+            }
+            
+            .service-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-badge {
+                bottom: -15px;
+                right: -10px;
+                padding: 20px;
+            }
+            
+            .gallery-badge strong {
+                font-size: 28px;
+            }
+            
+            .gallery-main img {
+                height: 300px;
+            }
+            
+            .materials-grid {
+                grid-template-columns: 1fr;
             }
             
             .footer-grid {
@@ -847,12 +788,12 @@
                 text-align: center;
             }
             
-            .filter-nav .container {
+            .service-nav .container {
                 gap: 10px;
             }
             
-            .filter-btn {
-                padding: 10px 20px;
+            .service-nav a {
+                padding: 10px 18px;
                 font-size: 13px;
             }
         }
@@ -959,8 +900,8 @@
                 </a>
                 <nav>
                     <a href="index.html">Home</a>
-                    <a href="services.html">Services</a>
-                    <a href="projects.html" class="active">Projects</a>
+                    <a href="services.html" class="active">Services</a>
+                    <a href="projects.html">Projects</a>
                     <a href="about.html">About</a>
                     <a href="contact.html">Contact</a>
                     <a href="contact.html" class="nav-cta">Get a Quote</a>
@@ -993,213 +934,353 @@
     <!-- Page Hero -->
     <section class="page-hero">
         <div class="container">
-            <h1>Our Projects</h1>
-            <p>Browse our portfolio of stunning outdoor living spaces. Each project showcases our commitment to quality and craftsmanship.</p>
+            <h1>Our Services</h1>
+            <p>Complete outdoor living solutions to transform your backyard into a stunning retreat.</p>
         </div>
     </section>
 
-    <!-- Filter Navigation -->
-    <div class="filter-nav">
+    <!-- Service Navigation -->
+    <div class="service-nav">
         <div class="container">
-            <button class="filter-btn active" data-filter="all">All Projects</button>
-            <button class="filter-btn" data-filter="decks">Decks</button>
-            <button class="filter-btn" data-filter="fencing">Fencing</button>
-            <button class="filter-btn" data-filter="pergolas">Pergolas</button>
-            <button class="filter-btn" data-filter="covered">Covered</button>
-            <button class="filter-btn" data-filter="hardscape">Hardscape</button>
+            <a href="#decks" class="active">Decks</a>
+            <a href="#fencing">Fencing</a>
+            <a href="#pergolas">Pergolas</a>
+            <a href="#covered">Covered Decks</a>
+            <a href="#staining">Staining</a>
+            <a href="#hardscape">Hardscape</a>
         </div>
     </div>
 
-    <!-- Gallery Section -->
-    <section class="gallery">
+    <!-- Custom Decks Section -->
+    <section class="service-section" id="decks">
         <div class="container">
-            <div class="gallery-grid">
-                <!-- Featured Project -->
-                <div class="gallery-item featured animate-on-scroll" data-category="decks" onclick="openLightbox(this)">
-                    <img src="images/project-1.jpg" alt="Multi-level Trex Deck">
-                    <span class="gallery-tag">Featured</span>
-                    <div class="gallery-overlay">
-                        <h3>Multi-Level Trex Deck</h3>
-                        <p>Lake County, IL • Trex Transcend</p>
+            <div class="service-content animate-on-scroll">
+                <div class="section-label">Premium Decking</div>
+                <h2>Custom Composite Decks</h2>
+                <p>Transform your outdoor space with a beautiful, durable composite deck built to last. We specialize in premium materials from Trex, TimberTech, Deckorators, and Fiberon—delivering stunning aesthetics with minimal maintenance.</p>
+                <p>Whether you envision a sleek modern design or a classic rustic retreat, our expert team brings your vision to life with precision craftsmanship and attention to every detail.</p>
+                <div class="service-features">
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Composite & PVC decking</span>
+                    </div>
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Multi-level designs</span>
+                    </div>
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Built-in seating & planters</span>
+                    </div>
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Integrated lighting</span>
+                    </div>
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Custom railings</span>
+                    </div>
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>25-50 year warranties</span>
                     </div>
                 </div>
-
-                <!-- Regular Projects -->
-                <div class="gallery-item animate-on-scroll" data-category="pergolas" onclick="openLightbox(this)">
-                    <img src="images/project-2.jpg" alt="Cedar Pergola">
-                    <div class="gallery-overlay">
-                        <h3>Cedar Pergola</h3>
-                        <p>McHenry County, IL</p>
-                    </div>
+                <a href="index.html#quote" class="btn btn-primary">
+                    Get a Free Quote
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+            </div>
+            <div class="service-gallery animate-on-scroll">
+                <div class="gallery-main">
+                    <img src="images/service-decks-large.jpg" alt="Custom composite deck">
                 </div>
-
-                <div class="gallery-item animate-on-scroll" data-category="fencing" onclick="openLightbox(this)">
-                    <img src="images/project-3.jpg" alt="Privacy Fence">
-                    <div class="gallery-overlay">
-                        <h3>Privacy Fence</h3>
-                        <p>DuPage County, IL</p>
-                    </div>
-                </div>
-
-                <div class="gallery-item animate-on-scroll" data-category="decks" onclick="openLightbox(this)">
-                    <img src="images/project-4.jpg" alt="TimberTech Deck">
-                    <div class="gallery-overlay">
-                        <h3>TimberTech Composite</h3>
-                        <p>Kenosha County, WI</p>
-                    </div>
-                </div>
-
-                <div class="gallery-item animate-on-scroll" data-category="covered" onclick="openLightbox(this)">
-                    <img src="images/project-5.jpg" alt="Covered Porch">
-                    <div class="gallery-overlay">
-                        <h3>Covered Porch</h3>
-                        <p>Lake County, IL</p>
-                    </div>
-                </div>
-
-                <div class="gallery-item animate-on-scroll" data-category="hardscape" onclick="openLightbox(this)">
-                    <img src="images/project-6.jpg" alt="Paver Patio">
-                    <div class="gallery-overlay">
-                        <h3>Paver Patio</h3>
-                        <p>Walworth County, WI</p>
-                    </div>
-                </div>
-
-                <div class="gallery-item animate-on-scroll" data-category="decks" onclick="openLightbox(this)">
-                    <img src="images/project-7.jpg" alt="Fiberon Deck">
-                    <div class="gallery-overlay">
-                        <h3>Fiberon Symmetry Deck</h3>
-                        <p>McHenry County, IL</p>
-                    </div>
-                </div>
-
-                <div class="gallery-item animate-on-scroll" data-category="pergolas" onclick="openLightbox(this)">
-                    <img src="images/project-8.jpg" alt="Louvered Pergola">
-                    <div class="gallery-overlay">
-                        <h3>Louvered Pergola</h3>
-                        <p>DuPage County, IL</p>
-                    </div>
-                </div>
-
-                <div class="gallery-item animate-on-scroll" data-category="fencing" onclick="openLightbox(this)">
-                    <img src="images/project-9.jpg" alt="Vinyl Fence">
-                    <div class="gallery-overlay">
-                        <h3>Vinyl Privacy Fence</h3>
-                        <p>Lake County, IL</p>
-                    </div>
-                </div>
-
-                <div class="gallery-item animate-on-scroll" data-category="decks" onclick="openLightbox(this)">
-                    <img src="images/project-10.jpg" alt="Deck with Lighting">
-                    <div class="gallery-overlay">
-                        <h3>Deck with LED Lighting</h3>
-                        <p>Kenosha County, WI</p>
-                    </div>
-                </div>
-
-                <div class="gallery-item animate-on-scroll" data-category="hardscape" onclick="openLightbox(this)">
-                    <img src="images/project-11.jpg" alt="Fire Pit Area">
-                    <div class="gallery-overlay">
-                        <h3>Fire Pit & Patio</h3>
-                        <p>McHenry County, IL</p>
-                    </div>
-                </div>
-
-                <div class="gallery-item animate-on-scroll" data-category="covered" onclick="openLightbox(this)">
-                    <img src="images/project-12.jpg" alt="Screen Porch">
-                    <div class="gallery-overlay">
-                        <h3>Screened Porch</h3>
-                        <p>Walworth County, WI</p>
-                    </div>
+                <div class="gallery-badge">
+                    <strong>25+</strong>
+                    <span>Year Warranty</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats-section">
+    <!-- Fencing Section -->
+    <section class="service-section" id="fencing">
         <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item animate-on-scroll">
-                    <strong>500+</strong>
-                    <span>Projects Completed</span>
+            <div class="service-content animate-on-scroll">
+                <div class="section-label">Privacy & Security</div>
+                <h2>Quality Fencing Solutions</h2>
+                <p>Complete your outdoor living space with beautiful, durable fencing that provides privacy, security, and enhanced curb appeal. We install a variety of fence styles to match your home's architecture and your personal preferences.</p>
+                <p>From classic wood to low-maintenance vinyl and composite options, we deliver expert installation with quality materials that stand the test of time.</p>
+                <div class="service-features">
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Privacy fencing</span>
+                    </div>
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Vinyl & composite options</span>
+                    </div>
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Decorative styles</span>
+                    </div>
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Custom gates</span>
+                    </div>
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Pool enclosures</span>
+                    </div>
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Low maintenance</span>
+                    </div>
                 </div>
-                <div class="stat-item animate-on-scroll">
-                    <strong>15+</strong>
-                    <span>Years Experience</span>
+                <a href="index.html#quote" class="btn btn-primary">
+                    Get a Free Quote
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+            </div>
+            <div class="service-gallery animate-on-scroll">
+                <div class="gallery-main">
+                    <img src="images/service-fencing-large.jpg" alt="Quality fencing">
                 </div>
-                <div class="stat-item animate-on-scroll">
-                    <strong>5</strong>
-                    <span>Counties Served</span>
-                </div>
-                <div class="stat-item animate-on-scroll">
+                <div class="gallery-badge">
                     <strong>100%</strong>
-                    <span>Satisfaction Rate</span>
+                    <span>Satisfaction</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials">
+    <!-- Pergolas Section -->
+    <section class="service-section" id="pergolas">
         <div class="container">
-            <div class="testimonials-header animate-on-scroll">
-                <div class="section-label">Testimonials</div>
-                <h2>What Our Clients Say</h2>
+            <div class="service-content animate-on-scroll">
+                <div class="section-label">Shade & Style</div>
+                <h2>Custom Pergolas</h2>
+                <p>Add architectural elegance and comfortable shade to your outdoor space with a custom pergola. Our designs range from classic cedar structures to modern louvered systems that give you complete control over sun and shade.</p>
+                <p>Whether attached to your home or freestanding in your yard, a pergola creates the perfect outdoor room for dining, entertaining, or relaxing.</p>
+                <div class="service-features">
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Cedar & wood pergolas</span>
+                    </div>
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Louvered roof systems</span>
+                    </div>
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Vinyl & aluminum options</span>
+                    </div>
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Attached or freestanding</span>
+                    </div>
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Integrated lighting</span>
+                    </div>
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Custom sizing</span>
+                    </div>
+                </div>
+                <a href="index.html#quote" class="btn btn-primary">
+                    Get a Free Quote
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
             </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card animate-on-scroll">
-                    <div class="testimonial-stars">
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <div class="service-gallery animate-on-scroll">
+                <div class="gallery-main">
+                    <img src="images/service-pergolas-large.jpg" alt="Custom pergola">
+                </div>
+                <div class="gallery-badge">
+                    <strong>Custom</strong>
+                    <span>Designs</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Covered Decks Section -->
+    <section class="service-section" id="covered">
+        <div class="container">
+            <div class="service-content animate-on-scroll">
+                <div class="section-label">Year-Round Comfort</div>
+                <h2>Covered Decks & Porches</h2>
+                <p>Extend your outdoor living season with a covered deck or porch that protects you from sun, rain, and snow. Our covered structures seamlessly integrate with your home's architecture while providing comfortable outdoor space you can enjoy year-round.</p>
+                <p>From gable roofs to modern flat-top designs, we create beautiful covered spaces that add value to your home and quality to your life.</p>
+                <div class="service-features">
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Gable roof porches</span>
                     </div>
-                    <p>"Deck Connect transformed our backyard into an outdoor oasis. The craftsmanship is incredible, and they finished on time and on budget. Couldn't be happier!"</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">M</div>
-                        <div class="testimonial-info">
-                            <strong>Michael R.</strong>
-                            <span>Lake County, IL</span>
-                        </div>
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Shed roof structures</span>
+                    </div>
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Screen porch options</span>
+                    </div>
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Ceiling fans & lighting</span>
+                    </div>
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Weather protection</span>
+                    </div>
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Code compliant</span>
                     </div>
                 </div>
+                <a href="index.html#quote" class="btn btn-primary">
+                    Get a Free Quote
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+            </div>
+            <div class="service-gallery animate-on-scroll">
+                <div class="gallery-main">
+                    <img src="images/service-covered-large.jpg" alt="Covered deck">
+                </div>
+                <div class="gallery-badge">
+                    <strong>365</strong>
+                    <span>Days/Year</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="testimonial-card animate-on-scroll">
-                    <div class="testimonial-stars">
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <!-- Deck Staining Section -->
+    <section class="service-section" id="staining">
+        <div class="container">
+            <div class="service-content animate-on-scroll">
+                <div class="section-label">Restore & Protect</div>
+                <h2>Deck Staining & Refinishing</h2>
+                <p>Bring your existing wood deck back to life with professional staining and refinishing services. Our expert process restores the natural beauty of your deck while providing essential protection against the elements.</p>
+                <p>We use premium stains and sealers that penetrate deep into the wood, providing long-lasting protection from UV rays, moisture, and everyday wear.</p>
+                <div class="service-features">
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Professional power washing</span>
                     </div>
-                    <p>"Professional from start to finish. They helped us design the perfect deck for our lakefront property. The attention to detail is what sets them apart."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">S</div>
-                        <div class="testimonial-info">
-                            <strong>Sarah & Tom K.</strong>
-                            <span>McHenry County, IL</span>
-                        </div>
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Sanding & prep work</span>
+                    </div>
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Premium stains & sealers</span>
+                    </div>
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>UV protection</span>
+                    </div>
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Waterproofing</span>
+                    </div>
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Board replacement</span>
                     </div>
                 </div>
+                <a href="index.html#quote" class="btn btn-primary">
+                    Get a Free Quote
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+            </div>
+            <div class="service-gallery animate-on-scroll">
+                <div class="gallery-main">
+                    <img src="images/service-staining-large.jpg" alt="Deck staining">
+                </div>
+                <div class="gallery-badge">
+                    <strong>Like</strong>
+                    <span>New Again</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="testimonial-card animate-on-scroll">
-                    <div class="testimonial-stars">
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <!-- Hardscape Section -->
+    <section class="service-section" id="hardscape">
+        <div class="container">
+            <div class="service-content animate-on-scroll">
+                <div class="section-label">Ground Level Beauty</div>
+                <h2>Hardscape & Paver Patios</h2>
+                <p>Complete your outdoor living space with stunning hardscape features and paver patios. Our expert installation creates beautiful, durable surfaces that complement your deck and enhance your property's value.</p>
+                <p>From walkways to full patios, fire pit surrounds to retaining walls, we design and build hardscape features that blend seamlessly with your landscape.</p>
+                <div class="service-features">
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Paver patios</span>
                     </div>
-                    <p>"We hired Deck Connect for our pergola and couldn't be more pleased. Great communication throughout the project and the end result exceeded our expectations."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">J</div>
-                        <div class="testimonial-info">
-                            <strong>Jennifer L.</strong>
-                            <span>Kenosha County, WI</span>
-                        </div>
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Natural stone</span>
                     </div>
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Walkways & paths</span>
+                    </div>
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Fire pit surrounds</span>
+                    </div>
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Retaining walls</span>
+                    </div>
+                    <div class="service-feature">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <span>Outdoor kitchens</span>
+                    </div>
+                </div>
+                <a href="index.html#quote" class="btn btn-primary">
+                    Get a Free Quote
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+            </div>
+            <div class="service-gallery animate-on-scroll">
+                <div class="gallery-main">
+                    <img src="images/service-hardscape-large.jpg" alt="Paver patio">
+                </div>
+                <div class="gallery-badge">
+                    <strong>Built</strong>
+                    <span>To Last</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Materials Section -->
+    <section class="materials">
+        <div class="container">
+            <div class="materials-header animate-on-scroll">
+                <div class="section-label">Premium Materials</div>
+                <h2>Brands We Trust</h2>
+                <p>We work exclusively with industry-leading manufacturers to ensure quality and longevity.</p>
+            </div>
+            <div class="materials-grid">
+                <div class="material-card animate-on-scroll">
+                    <h3>Trex</h3>
+                    <p>Industry-leading composite decking with exceptional durability and a 25-year warranty.</p>
+                </div>
+                <div class="material-card animate-on-scroll">
+                    <h3>TimberTech</h3>
+                    <p>Premium capped polymer and composite decking known for beauty and performance.</p>
+                </div>
+                <div class="material-card animate-on-scroll">
+                    <h3>Deckorators</h3>
+                    <p>Innovative decking solutions with mineral-based composite technology.</p>
+                </div>
+                <div class="material-card animate-on-scroll">
+                    <h3>Fiberon</h3>
+                    <p>Sustainable composite decking with realistic wood grain textures.</p>
                 </div>
             </div>
         </div>
@@ -1209,7 +1290,7 @@
     <section class="cta">
         <div class="container">
             <h2 class="animate-on-scroll">Ready to Start Your Project?</h2>
-            <p class="animate-on-scroll">Let's create your dream outdoor space. Contact us today for a free consultation.</p>
+            <p class="animate-on-scroll">Get a free, no-obligation quote for your dream outdoor living space today.</p>
             <a href="index.html#quote" class="btn btn-primary animate-on-scroll">
                 Get Your Free Quote
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
@@ -1288,16 +1369,6 @@
         </div>
     </footer>
 
-    <!-- Lightbox -->
-    <div class="lightbox" onclick="closeLightbox(event)">
-        <div class="lightbox-content">
-            <div class="lightbox-close" onclick="closeLightbox(event)">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-            </div>
-            <img src="" alt="" id="lightbox-img">
-        </div>
-    </div>
-
     <script>
         // Mobile menu
         function toggleMobileMenu() {
@@ -1306,55 +1377,28 @@
             document.body.style.overflow = document.querySelector('.mobile-menu').classList.contains('active') ? 'hidden' : '';
         }
 
-        // Filter functionality
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const galleryItems = document.querySelectorAll('.gallery-item');
+        // Service nav active state
+        const serviceNavLinks = document.querySelectorAll('.service-nav a');
+        const sections = document.querySelectorAll('.service-section');
 
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Update active button
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                // Filter items
-                const filter = btn.dataset.filter;
-                galleryItems.forEach(item => {
-                    if (filter === 'all' || item.dataset.category === filter) {
-                        item.style.display = 'block';
-                        setTimeout(() => item.style.opacity = '1', 10);
-                    } else {
-                        item.style.opacity = '0';
-                        setTimeout(() => item.style.display = 'none', 400);
-                    }
-                });
+        function updateActiveNav() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 250;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
             });
-        });
 
-        // Lightbox functionality
-        function openLightbox(element) {
-            const img = element.querySelector('img');
-
-            document.getElementById('lightbox-img').src = img.src.replace('w=700', 'w=1400');
-            document.getElementById('lightbox-img').alt = img.alt;
-
-            document.querySelector('.lightbox').classList.add('active');
-            document.body.style.overflow = 'hidden';
+            serviceNavLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
         }
 
-        function closeLightbox(event) {
-            if (event.target.classList.contains('lightbox') || event.target.closest('.lightbox-close')) {
-                document.querySelector('.lightbox').classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        }
-
-        // Close lightbox with Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                document.querySelector('.lightbox').classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
+        window.addEventListener('scroll', updateActiveNav);
 
         // Scroll animations
         const observerOptions = {
@@ -1363,17 +1407,29 @@
         };
 
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
+            entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                    }, index * 100);
+                    entry.target.classList.add('visible');
                 }
             });
         }, observerOptions);
 
         document.querySelectorAll('.animate-on-scroll').forEach(el => {
             observer.observe(el);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
     </script>
 </body>
