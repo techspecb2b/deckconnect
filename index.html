@@ -983,36 +983,6 @@
             line-height: 1.6;
         }
 
-        /* Brands Section */
-        .brands {
-            padding: 100px 0;
-            background: var(--white);
-        }
-
-        .brands-grid {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 80px;
-            flex-wrap: wrap;
-        }
-
-        .brand-item {
-            opacity: 0.6;
-            transition: opacity 0.3s;
-            filter: grayscale(100%);
-        }
-
-        .brand-item:hover {
-            opacity: 1;
-            filter: grayscale(0%);
-        }
-
-        .brand-item img {
-            height: 50px;
-            width: auto;
-        }
-
         /* Quote Section */
         .quote-section {
             padding: 140px 0;
@@ -1567,13 +1537,19 @@
         .testimonials {
             padding: 140px 0;
             background: var(--white);
+            overflow: hidden;
+        }
+
+        .testimonials-wrapper {
+            position: relative;
+            margin-top: 60px;
+            overflow: hidden;
         }
 
         .testimonials-slider {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            display: flex;
             gap: 30px;
-            margin-top: 60px;
+            transition: transform 0.5s ease;
         }
 
         .testimonial-card {
@@ -1581,6 +1557,64 @@
             border-radius: 24px;
             padding: 40px;
             position: relative;
+            flex: 0 0 calc(33.333% - 20px);
+            min-width: calc(33.333% - 20px);
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .slider-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--navy);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .slider-btn:hover {
+            background: var(--navy-light);
+            transform: scale(1.05);
+        }
+
+        .slider-btn svg {
+            width: 20px;
+            height: 20px;
+            color: var(--white);
+        }
+
+        .slider-dots {
+            display: flex;
+            gap: 10px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--warm-gray);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .slider-dot.active {
+            background: var(--gold);
+            transform: scale(1.2);
+        }
+
+        .slider-dot:hover {
+            background: var(--wood-medium);
         }
 
         .testimonial-quote {
@@ -1959,8 +1993,9 @@
                 grid-template-columns: 1fr 1fr;
             }
             
-            .testimonials-slider {
-                grid-template-columns: 1fr;
+            .testimonial-card {
+                flex: 0 0 calc(50% - 15px);
+                min-width: calc(50% - 15px);
             }
         }
 
@@ -1986,24 +2021,19 @@
                 height: 350px;
             }
             
-            .about-images {
-                margin-bottom: 40px;
-            }
-            
             .about-experience {
-                top: auto;
-                bottom: -20px;
-                right: 50%;
-                transform: translateX(50%);
-                padding: 15px 25px;
+                top: 10px;
+                right: 10px;
+                padding: 12px 16px;
             }
             
             .about-experience strong {
-                font-size: 32px;
+                font-size: 28px;
             }
             
             .about-experience span {
-                font-size: 11px;
+                font-size: 9px;
+                letter-spacing: 1px;
             }
             
             .services-grid {
@@ -2075,12 +2105,19 @@
                 padding: 30px 25px;
             }
             
-            .brands-grid {
-                gap: 40px;
+            .testimonial-card {
+                flex: 0 0 100%;
+                min-width: 100%;
             }
             
-            .brand-item img {
-                height: 35px;
+            .slider-btn {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .slider-btn svg {
+                width: 16px;
+                height: 16px;
             }
         }
 
@@ -2546,30 +2583,6 @@
     </section>
 
     <!-- Brands Section -->
-    <section class="brands">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <div class="section-label">Our Partners</div>
-                <h2>Premium Brands We Trust</h2>
-                <p>We work exclusively with industry-leading decking manufacturers.</p>
-            </div>
-            <div class="brands-grid animate-on-scroll">
-                <div class="brand-item">
-                    <img src="https://www.trex.com/content/dam/trex/images/logos/trex-logo.svg" alt="Trex" onerror="this.style.display='none'">
-                </div>
-                <div class="brand-item">
-                    <img src="https://www.timbertech.com/images/logos/timbertech-logo.svg" alt="TimberTech" onerror="this.style.display='none'">
-                </div>
-                <div class="brand-item">
-                    <img src="https://www.deckorators.com/images/deckorators-logo.svg" alt="Deckorators" onerror="this.style.display='none'">
-                </div>
-                <div class="brand-item">
-                    <img src="https://www.fiberondecking.com/images/fiberon-logo.svg" alt="Fiberon" onerror="this.style.display='none'">
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Quote Section -->
     <section class="quote-section" id="quote">
         <div class="container">
@@ -2840,6 +2853,7 @@
                 <h2>What Our Clients Say</h2>
                 <p>Don't just take our word for it—hear from homeowners who've transformed their outdoor spaces with us.</p>
             </div>
+            <div class="testimonials-wrapper">
             <div class="testimonials-slider">
                 <div class="testimonial-card animate-on-scroll">
                     <div class="testimonial-quote">
@@ -2852,12 +2866,52 @@
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                     </div>
-                    <p>"Jeremy of Deck Connect was amazing to work with. He was quick to respond to my inquiries and was able to schedule a free estimate the day after I reached out. His price was very fair and the new stairs look fantastic!"</p>
+                    <p>"I can't imagine anyone better for this job than Jeremy and his team. Throughout the job, Jeremy was transparent, communicative, and enthusiastic every step of the way. We love our new deck — a massive improvement to what we had before! If you are looking for a new deck, Jeremy is the way to go."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">B</div>
+                        <div class="testimonial-author-info">
+                            <strong>Brittani Gimenez</strong>
+                            <span>4 weeks ago</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card animate-on-scroll">
+                    <div class="testimonial-quote">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.192 15.757c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.956.76-3.022.66-1.065 1.515-1.867 2.558-2.403L9.373 5c-.8.396-1.56.898-2.26 1.505-.71.607-1.34 1.305-1.9 2.094s-.98 1.68-1.25 2.69-.346 2.04-.217 3.1c.168 1.4.62 2.52 1.356 3.35.735.84 1.652 1.26 2.748 1.26.965 0 1.766-.29 2.4-.878.628-.576.94-1.365.94-2.368l.002.003zm9.124 0c0-.88-.23-1.618-.69-2.217-.326-.42-.768-.695-1.327-.825-.55-.13-1.07-.14-1.54-.03-.16-.94.09-1.95.75-3.02.66-1.06 1.514-1.86 2.557-2.4L18.49 5c-.8.396-1.555.898-2.26 1.505-.708.607-1.34 1.305-1.894 2.094-.556.79-.97 1.68-1.24 2.69-.273 1-.345 2.04-.217 3.1.165 1.4.615 2.52 1.35 3.35.732.833 1.646 1.25 2.742 1.25.967 0 1.768-.29 2.402-.876.627-.576.942-1.365.942-2.368v.012z"/></svg>
+                    </div>
+                    <div class="testimonial-stars">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <p>"Jeremy and his team from Deck Connect did a fantastic job replacing my old deck with TREX decking. His professionalism stood out from the moment he showed up to assess the project, all the way through completion. I greatly appreciate his commitment to excellence, and am so very grateful that I chose his company to complete this project. I HIGHLY recommend Jeremy and his team — they're not just great craftsmen, but great people too!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">K</div>
+                        <div class="testimonial-author-info">
+                            <strong>Kathy Holmes</strong>
+                            <span>6 months ago</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card animate-on-scroll">
+                    <div class="testimonial-quote">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.192 15.757c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.956.76-3.022.66-1.065 1.515-1.867 2.558-2.403L9.373 5c-.8.396-1.56.898-2.26 1.505-.71.607-1.34 1.305-1.9 2.094s-.98 1.68-1.25 2.69-.346 2.04-.217 3.1c.168 1.4.62 2.52 1.356 3.35.735.84 1.652 1.26 2.748 1.26.965 0 1.766-.29 2.4-.878.628-.576.94-1.365.94-2.368l.002.003zm9.124 0c0-.88-.23-1.618-.69-2.217-.326-.42-.768-.695-1.327-.825-.55-.13-1.07-.14-1.54-.03-.16-.94.09-1.95.75-3.02.66-1.06 1.514-1.86 2.557-2.4L18.49 5c-.8.396-1.555.898-2.26 1.505-.708.607-1.34 1.305-1.894 2.094-.556.79-.97 1.68-1.24 2.69-.273 1-.345 2.04-.217 3.1.165 1.4.615 2.52 1.35 3.35.732.833 1.646 1.25 2.742 1.25.967 0 1.768-.29 2.402-.876.627-.576.942-1.365.942-2.368v.012z"/></svg>
+                    </div>
+                    <div class="testimonial-stars">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <p>"Jeremy and his crew did a deck replacement. What can I say, the deck is gorgeous!! We had the deck completed about a week's time. Throughout the process either Jeremy or Greg kept us in the loop with updates on what was happening. Very impressed with professionalism and courteous. No B.S., pure, plain, and simple. Even the inspector from the village was impressed of the handiwork. You can't go wrong with a company that does what it does and does the project in a timely manner."</p>
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">A</div>
                         <div class="testimonial-author-info">
-                            <strong>Annie M.</strong>
-                            <span>Lindenhurst, IL</span>
+                            <strong>Andy Chung</strong>
+                            <span>Local Guide · 4 months ago</span>
                         </div>
                     </div>
                 </div>
@@ -2872,12 +2926,12 @@
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                     </div>
-                    <p>"Outstanding quality and professionalism. The team transformed our backyard into exactly what we envisioned. Communication was excellent throughout the entire process. Highly recommend!"</p>
+                    <p>"Jeremy and his team just recently completed a deck replacement project for me, and I am very happy with the results! Jeremy is one of those rare finds that you can trust completely from start to finish on your project. He helped me bring my open deck concept to life, and was the only contractor that would think outside of the traditional layout mindset. He communicates well throughout the process and is very fair on pricing. I would 100% recommend him to anyone looking for updating or completely overhauling your deck."</p>
                     <div class="testimonial-author">
-                        <div class="testimonial-avatar">M</div>
+                        <div class="testimonial-avatar">K</div>
                         <div class="testimonial-author-info">
-                            <strong>Michael R.</strong>
-                            <span>Lake Zurich, IL</span>
+                            <strong>Kris W</strong>
+                            <span>5 months ago</span>
                         </div>
                     </div>
                 </div>
@@ -2892,16 +2946,70 @@
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                     </div>
-                    <p>"From start to finish, Deck Connect delivered exceptional service. They handled all permits, kept us updated daily, and the finished deck exceeded our expectations. Worth every penny!"</p>
+                    <p>"Jeremy of Deck Connect was amazing to work with. He was quick to respond to my inquiries and was able to schedule a free estimate for me the day after I reached out. His price was very fair and he was able to start the work on my deck stairs within a few days of the estimate. Jeremy was very efficient and the new stairs look fantastic. He cleaned up all of the work materials and left the area spotless. I would highly recommend him for any general contractor needs, especially for deck building. We will definitely be using him again in the future. Thanks, Jeremy!!"</p>
                     <div class="testimonial-author">
-                        <div class="testimonial-avatar">S</div>
+                        <div class="testimonial-avatar">A</div>
                         <div class="testimonial-author-info">
-                            <strong>Sarah K.</strong>
-                            <span>Barrington, IL</span>
+                            <strong>Annie Sykora</strong>
+                            <span>Local Guide · 11 months ago</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card animate-on-scroll">
+                    <div class="testimonial-quote">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.192 15.757c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.956.76-3.022.66-1.065 1.515-1.867 2.558-2.403L9.373 5c-.8.396-1.56.898-2.26 1.505-.71.607-1.34 1.305-1.9 2.094s-.98 1.68-1.25 2.69-.346 2.04-.217 3.1c.168 1.4.62 2.52 1.356 3.35.735.84 1.652 1.26 2.748 1.26.965 0 1.766-.29 2.4-.878.628-.576.94-1.365.94-2.368l.002.003zm9.124 0c0-.88-.23-1.618-.69-2.217-.326-.42-.768-.695-1.327-.825-.55-.13-1.07-.14-1.54-.03-.16-.94.09-1.95.75-3.02.66-1.06 1.514-1.86 2.557-2.4L18.49 5c-.8.396-1.555.898-2.26 1.505-.708.607-1.34 1.305-1.894 2.094-.556.79-.97 1.68-1.24 2.69-.273 1-.345 2.04-.217 3.1.165 1.4.615 2.52 1.35 3.35.732.833 1.646 1.25 2.742 1.25.967 0 1.768-.29 2.402-.876.627-.576.942-1.365.942-2.368v.012z"/></svg>
+                    </div>
+                    <div class="testimonial-stars">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <p>"Jeremy was fantastic the entire process. He was very upfront and fair about pricing of our project, explaining and answering all questions. We love our new deck and would recommend him to anyone looking for great and honest decking needs!!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">A</div>
+                        <div class="testimonial-author-info">
+                            <strong>Adam Bernard</strong>
+                            <span>11 months ago</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card animate-on-scroll">
+                    <div class="testimonial-quote">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.192 15.757c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.956.76-3.022.66-1.065 1.515-1.867 2.558-2.403L9.373 5c-.8.396-1.56.898-2.26 1.505-.71.607-1.34 1.305-1.9 2.094s-.98 1.68-1.25 2.69-.346 2.04-.217 3.1c.168 1.4.62 2.52 1.356 3.35.735.84 1.652 1.26 2.748 1.26.965 0 1.766-.29 2.4-.878.628-.576.94-1.365.94-2.368l.002.003zm9.124 0c0-.88-.23-1.618-.69-2.217-.326-.42-.768-.695-1.327-.825-.55-.13-1.07-.14-1.54-.03-.16-.94.09-1.95.75-3.02.66-1.06 1.514-1.86 2.557-2.4L18.49 5c-.8.396-1.555.898-2.26 1.505-.708.607-1.34 1.305-1.894 2.094-.556.79-.97 1.68-1.24 2.69-.273 1-.345 2.04-.217 3.1.165 1.4.615 2.52 1.35 3.35.732.833 1.646 1.25 2.742 1.25.967 0 1.768-.29 2.402-.876.627-.576.942-1.365.942-2.368v.012z"/></svg>
+                    </div>
+                    <div class="testimonial-stars">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <p>"Jeremy and his team worked diligently to upgrade our deck to exactly what we wanted. He worked with us in selecting the materials and wanted to make sure we were happy! He offered the best pricing and delivered exactly what we wanted."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">C</div>
+                        <div class="testimonial-author-info">
+                            <strong>Christine M</strong>
+                            <span>Local Guide · 3 months ago</span>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="slider-nav">
+                <button class="slider-btn slider-prev" aria-label="Previous testimonials">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <div class="slider-dots">
+                    <button class="slider-dot active" data-slide="0" aria-label="Go to slide 1"></button>
+                    <button class="slider-dot" data-slide="1" aria-label="Go to slide 2"></button>
+                    <button class="slider-dot" data-slide="2" aria-label="Go to slide 3"></button>
+                </div>
+                <button class="slider-btn slider-next" aria-label="Next testimonials">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+            </div>
+        </div>
         </div>
     </section>
 
@@ -3005,6 +3113,90 @@
             document.querySelector('.mobile-overlay').classList.toggle('active');
             document.body.style.overflow = document.querySelector('.mobile-menu').classList.contains('active') ? 'hidden' : '';
         }
+
+        // Testimonials Slider
+        (function() {
+            const slider = document.querySelector('.testimonials-slider');
+            const cards = document.querySelectorAll('.testimonial-card');
+            const prevBtn = document.querySelector('.slider-prev');
+            const nextBtn = document.querySelector('.slider-next');
+            const dots = document.querySelectorAll('.slider-dot');
+            
+            if (!slider || cards.length === 0) return;
+            
+            let currentSlide = 0;
+            const totalCards = cards.length; // 7 cards
+            
+            function getCardsPerView() {
+                if (window.innerWidth <= 768) return 1;
+                if (window.innerWidth <= 1024) return 2;
+                return 3;
+            }
+            
+            function getMaxSlide() {
+                const cardsPerView = getCardsPerView();
+                return Math.max(0, totalCards - cardsPerView);
+            }
+            
+            function updateSlider() {
+                const card = cards[0];
+                const cardStyle = window.getComputedStyle(card);
+                const cardWidth = card.offsetWidth;
+                const gap = 30;
+                const offset = currentSlide * (cardWidth + gap);
+                slider.style.transform = `translateX(-${offset}px)`;
+                
+                // Update dots
+                const cardsPerView = getCardsPerView();
+                const totalDots = Math.ceil(totalCards / cardsPerView);
+                const activeDot = Math.floor(currentSlide / cardsPerView);
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === activeDot);
+                });
+            }
+            
+            function nextSlide() {
+                const maxSlide = getMaxSlide();
+                currentSlide = currentSlide >= maxSlide ? 0 : currentSlide + 1;
+                updateSlider();
+            }
+            
+            function prevSlide() {
+                const maxSlide = getMaxSlide();
+                currentSlide = currentSlide <= 0 ? maxSlide : currentSlide - 1;
+                updateSlider();
+            }
+            
+            function goToSlide(index) {
+                const cardsPerView = getCardsPerView();
+                currentSlide = Math.min(index * cardsPerView, getMaxSlide());
+                updateSlider();
+            }
+            
+            // Event listeners
+            if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+            if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+            
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => goToSlide(index));
+            });
+            
+            // Handle resize
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    currentSlide = Math.min(currentSlide, getMaxSlide());
+                    updateSlider();
+                }, 100);
+            });
+            
+            // Initialize
+            updateSlider();
+            
+            // Auto-advance every 5 seconds
+            setInterval(nextSlide, 5000);
+        })();
 
         // Multi-step form
         let currentStep = 1;
