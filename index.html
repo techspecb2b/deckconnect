@@ -11,18 +11,23 @@
     <style>
         :root {
             --white: #ffffff;
-            --off-white: #fafaf8;
-            --cream: #f5f3ef;
-            --warm-gray: #e8e4de;
-            --wood-light: #d4a574;
+            --off-white: #f8f9fa;
+            --cream: #f0ebe3;
+            --warm-gray: #e5e0d8;
+            --wood-light: #c9a87c;
             --wood-medium: #a67c52;
             --wood-dark: #8b5e3c;
-            --charcoal: #2d2a26;
-            --charcoal-light: #4a4640;
-            --accent: #c9a76c;
-            --accent-dark: #b8965b;
-            --shadow: rgba(45, 42, 38, 0.08);
-            --shadow-medium: rgba(45, 42, 38, 0.12);
+            --navy: #1e3a5f;
+            --navy-light: #2d4a6f;
+            --navy-dark: #152a45;
+            --charcoal: #2b2b2b;
+            --charcoal-light: #4a4a4a;
+            --gold: #c9a227;
+            --gold-light: #d4b84a;
+            --accent: #c9a227;
+            --accent-dark: #a8871f;
+            --shadow: rgba(30, 58, 95, 0.08);
+            --shadow-medium: rgba(30, 58, 95, 0.12);
         }
 
         * {
@@ -87,7 +92,7 @@
         }
 
         .header-top {
-            background: var(--charcoal);
+            background: var(--navy);
             padding: 10px 0;
             font-size: 14px;
         }
@@ -108,7 +113,7 @@
         }
 
         .header-top a:hover {
-            color: var(--accent);
+            color: var(--gold);
         }
 
         .header-top svg {
@@ -117,12 +122,14 @@
         }
 
         .header-main {
-            padding: 20px 0;
+            padding: 15px 0;
             transition: padding 0.4s;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
         }
 
         header.scrolled .header-main {
-            padding: 15px 0;
+            padding: 10px 0;
         }
 
         .header-main .container {
@@ -138,21 +145,14 @@
             text-decoration: none;
         }
 
-        .logo-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--wood-medium), var(--wood-dark));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(166, 124, 82, 0.3);
+        .logo-img {
+            height: 55px;
+            width: auto;
+            transition: height 0.4s;
         }
 
-        .logo-icon svg {
-            width: 28px;
-            height: 28px;
-            color: var(--white);
+        header.scrolled .logo-img {
+            height: 45px;
         }
 
         .logo-text {
@@ -162,68 +162,73 @@
 
         .logo-text span:first-child {
             font-family: 'Montserrat', sans-serif;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 700;
-            color: var(--charcoal);
+            color: var(--navy);
             letter-spacing: -0.5px;
         }
 
         .logo-text span:last-child {
             font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--wood-medium);
-            font-weight: 500;
+            letter-spacing: 2px;
+            color: var(--gold);
+            font-weight: 600;
         }
 
         nav {
             display: flex;
             align-items: center;
-            gap: 40px;
+            gap: 35px;
         }
 
         nav a {
-            text-decoration: none;
-            color: var(--charcoal);
             font-size: 15px;
             font-weight: 500;
-            letter-spacing: 0.5px;
+            color: var(--charcoal);
+            text-decoration: none;
             position: relative;
-            padding: 5px 0;
+            transition: color 0.3s;
         }
 
-        nav a::after {
+        nav a:not(.nav-cta)::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -5px;
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--wood-medium);
-            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--gold);
+            transition: width 0.3s;
         }
 
-        nav a:hover::after {
+        nav a:not(.nav-cta):hover::after,
+        nav a:not(.nav-cta).active::after {
             width: 100%;
         }
 
+        nav a:hover {
+            color: var(--navy);
+        }
+
         .nav-cta {
-            background: var(--charcoal);
+            background: var(--navy);
             color: var(--white) !important;
-            padding: 14px 32px !important;
+            padding: 12px 28px;
             border-radius: 50px;
-            transition: all 0.3s !important;
-            box-shadow: 0 4px 15px var(--shadow-medium);
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(30, 58, 95, 0.3);
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(201, 162, 39, 0.4);
         }
 
         .nav-cta::after {
             display: none !important;
-        }
-
-        .nav-cta:hover {
-            background: var(--wood-medium) !important;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(166, 124, 82, 0.3);
         }
 
         .mobile-menu-btn {
@@ -266,7 +271,7 @@
 
         /* Service Areas Ticker */
         .areas-ticker {
-            background: var(--charcoal);
+            background: var(--navy);
             padding: 20px 0;
             overflow: hidden;
             margin-top: 0;
@@ -374,25 +379,27 @@
         }
 
         .btn-primary {
-            background: var(--charcoal);
+            background: var(--navy);
             color: var(--white);
-            box-shadow: 0 8px 30px var(--shadow-medium);
+            box-shadow: 0 8px 30px rgba(30, 58, 95, 0.3);
         }
 
         .btn-primary:hover {
-            background: var(--wood-medium);
+            background: var(--gold);
             transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(166, 124, 82, 0.35);
+            box-shadow: 0 12px 40px rgba(201, 162, 39, 0.4);
         }
 
         .btn-secondary {
             background: var(--white);
-            color: var(--charcoal);
+            color: var(--navy);
+            border: 2px solid var(--navy);
             box-shadow: 0 4px 20px var(--shadow);
         }
 
         .btn-secondary:hover {
-            background: var(--cream);
+            background: var(--navy);
+            color: var(--white);
             transform: translateY(-3px);
         }
 
@@ -2154,9 +2161,7 @@
         <div class="header-main">
             <div class="container">
                 <a href="index.html" class="logo">
-                    <div class="logo-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                    </div>
+                    <img src="logo.svg" alt="Deck Connect" class="logo-img">
                     <div class="logo-text">
                         <span>Deck Connect</span>
                         <span>Premium Outdoor Living</span>
@@ -2898,9 +2903,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="index.html" class="logo">
-                        <div class="logo-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                        </div>
+                        <img src="logo.svg" alt="Deck Connect" class="logo-img">
                         <div class="logo-text">
                             <span>Deck Connect</span>
                             <span>Premium Outdoor Living</span>
@@ -2922,22 +2925,21 @@
                 <div class="footer-column">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="services.html#decks">Custom Decks</a></li>
-                        <li><a href="services.html#fencing">Fencing</a></li>
-                        <li><a href="services.html#pergolas">Pergolas</a></li>
-                        <li><a href="services.html#covered">Covered Decks</a></li>
-                        <li><a href="services.html#staining">Deck Staining</a></li>
-                        <li><a href="services.html#hardscape">Hardscape/Pavers</a></li>
+                        <li><a href="services.html">Custom Decks</a></li>
+                        <li><a href="services.html">Fencing</a></li>
+                        <li><a href="services.html">Pergolas</a></li>
+                        <li><a href="services.html">Covered Decks</a></li>
+                        <li><a href="services.html">Deck Staining</a></li>
+                        <li><a href="services.html">Hardscape/Pavers</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h4>Company</h4>
                     <ul>
-                        <li><a href="index.html#about">About Us</a></li>
-                        <li><a href="index.html#projects">Our Projects</a></li>
-                        <li><a href="index.html#process">Our Process</a></li>
-                        <li><a href="index.html#testimonials">Testimonials</a></li>
-                        <li><a href="#quote">Get a Quote</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="projects.html">Our Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="contact.html">Get a Quote</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
