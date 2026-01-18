@@ -11,18 +11,23 @@
     <style>
         :root {
             --white: #ffffff;
-            --off-white: #fafaf8;
-            --cream: #f5f3ef;
-            --warm-gray: #e8e4de;
-            --wood-light: #d4a574;
+            --off-white: #f8f9fa;
+            --cream: #f0ebe3;
+            --warm-gray: #e5e0d8;
+            --wood-light: #c9a87c;
             --wood-medium: #a67c52;
             --wood-dark: #8b5e3c;
-            --charcoal: #2d2a26;
-            --charcoal-light: #4a4640;
-            --accent: #c9a76c;
-            --accent-dark: #b8965b;
-            --shadow: rgba(45, 42, 38, 0.08);
-            --shadow-medium: rgba(45, 42, 38, 0.12);
+            --charcoal: #2b2b2b;
+            --charcoal-light: #4a4a4a;
+            --navy: #1e3a5f;
+            --navy-light: #2d4a6f;
+            --navy-dark: #152a45;
+            --gold: #c9a227;
+            --gold-light: #d4b84a;
+            --accent: #c9a227;
+            --accent-dark: #a8871f;
+            --shadow: rgba(30, 58, 95, 0.08);
+            --shadow-medium: rgba(30, 58, 95, 0.12);
             --error: #c0392b;
             --success: #27ae60;
         }
@@ -64,7 +69,7 @@
         }
 
         .header-top {
-            background: var(--charcoal);
+            background: var(--navy);
             padding: 10px 0;
             font-size: 14px;
         }
@@ -110,21 +115,10 @@
             text-decoration: none;
         }
 
-        .logo-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--wood-medium), var(--wood-dark));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(166, 124, 82, 0.3);
-        }
-
-        .logo-icon svg {
-            width: 28px;
-            height: 28px;
-            color: var(--white);
+        .logo-img {
+            height: 55px;
+            width: auto;
+            transition: height 0.4s;
         }
 
         .logo-text {
@@ -134,18 +128,18 @@
 
         .logo-text span:first-child {
             font-family: 'Montserrat', sans-serif;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 700;
-            color: var(--charcoal);
+            color: var(--navy);
             letter-spacing: -0.5px;
         }
 
         .logo-text span:last-child {
             font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--wood-medium);
-            font-weight: 500;
+            letter-spacing: 2px;
+            color: var(--gold);
+            font-weight: 600;
         }
 
         nav {
@@ -181,7 +175,7 @@
         }
 
         .nav-cta {
-            background: var(--charcoal);
+            background: var(--navy);
             color: var(--white) !important;
             padding: 14px 32px !important;
             border-radius: 50px;
@@ -209,7 +203,7 @@
         .mobile-menu-btn span {
             width: 28px;
             height: 2px;
-            background: var(--charcoal);
+            background: var(--navy);
             transition: all 0.3s;
         }
 
@@ -779,7 +773,7 @@
         }
 
         .btn-next {
-            background: var(--charcoal);
+            background: var(--navy);
             color: var(--white);
         }
 
@@ -1063,7 +1057,7 @@
 
         /* Footer */
         footer {
-            background: var(--charcoal);
+            background: var(--navy);
             color: var(--white);
             padding: 80px 0 30px;
         }
@@ -1405,9 +1399,7 @@
         <div class="header-main">
             <div class="container">
                 <a href="index.html" class="logo">
-                    <div class="logo-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                    </div>
+                    <img src="logo.svg" alt="Deck Connect" class="logo-img">
                     <div class="logo-text">
                         <span>Deck Connect</span>
                         <span>Premium Outdoor Living</span>
@@ -1851,15 +1843,13 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="index.html" class="logo">
-                        <div class="logo-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                        </div>
+                        <img src="logo.svg" alt="Deck Connect" class="logo-img">
                         <div class="logo-text">
                             <span>Deck Connect</span>
                             <span>Premium Outdoor Living</span>
                         </div>
                     </a>
-                    <p>Building connections, one deck at a time. Premium composite decks, fencing, pergolas, and outdoor living solutions across Northern Illinois and Southern Wisconsin.</p>
+                    <p>Building connections, one deck at a time. We design and build custom composite decks that stand out across Northern Illinois and Southern Wisconsin.</p>
                     <div class="footer-social">
                         <a href="#" aria-label="Facebook">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -1875,12 +1865,12 @@
                 <div class="footer-column">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="services.html#decks">Custom Decks</a></li>
-                        <li><a href="services.html#fencing">Fencing</a></li>
-                        <li><a href="services.html#pergolas">Pergolas</a></li>
-                        <li><a href="services.html#covered">Covered Decks</a></li>
-                        <li><a href="services.html#staining">Deck Staining</a></li>
-                        <li><a href="services.html#hardscape">Hardscape</a></li>
+                        <li><a href="services.html">Custom Decks</a></li>
+                        <li><a href="services.html">Fencing</a></li>
+                        <li><a href="services.html">Pergolas</a></li>
+                        <li><a href="services.html">Covered Decks</a></li>
+                        <li><a href="services.html">Deck Staining</a></li>
+                        <li><a href="services.html">Hardscape/Pavers</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -1888,9 +1878,8 @@
                     <ul>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="projects.html">Our Projects</a></li>
-                        <li><a href="index.html#process">Our Process</a></li>
-                        <li><a href="index.html#testimonials">Testimonials</a></li>
                         <li><a href="contact.html">Contact</a></li>
+                        <li><a href="contact.html">Get a Quote</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
