@@ -728,19 +728,15 @@
         }
 
         .lightbox-info {
-            text-align: center;
-            margin-top: 20px;
-            color: var(--white);
+            display: none;
         }
 
         .lightbox-info h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 24px;
-            margin-bottom: 5px;
+            display: none;
         }
 
         .lightbox-info p {
-            color: rgba(255, 255, 255, 0.7);
+            display: none;
         }
 
         /* Animations */
@@ -1299,10 +1295,6 @@
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </div>
             <img src="" alt="" id="lightbox-img">
-            <div class="lightbox-info">
-                <h3 id="lightbox-title"></h3>
-                <p id="lightbox-desc"></p>
-            </div>
         </div>
     </div>
 
@@ -1341,13 +1333,9 @@
         // Lightbox functionality
         function openLightbox(element) {
             const img = element.querySelector('img');
-            const title = element.querySelector('h3').textContent;
-            const desc = element.querySelector('.gallery-overlay p').textContent;
 
             document.getElementById('lightbox-img').src = img.src.replace('w=700', 'w=1400');
             document.getElementById('lightbox-img').alt = img.alt;
-            document.getElementById('lightbox-title').textContent = title;
-            document.getElementById('lightbox-desc').textContent = desc;
 
             document.querySelector('.lightbox').classList.add('active');
             document.body.style.overflow = 'hidden';
