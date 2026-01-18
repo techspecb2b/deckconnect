@@ -281,6 +281,14 @@
             padding: 80px 0 120px;
         }
 
+        .gallery-intro {
+            text-align: center;
+            font-size: 18px;
+            color: var(--charcoal-light);
+            margin-bottom: 50px;
+            font-style: italic;
+        }
+
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -674,7 +682,7 @@
         .lightbox {
             position: fixed;
             inset: 0;
-            background: rgba(45, 42, 38, 0.95);
+            background: rgba(30, 58, 95, 0.95);
             z-index: 3000;
             display: flex;
             align-items: center;
@@ -682,6 +690,7 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.4s;
+            padding: 40px;
         }
 
         .lightbox.active {
@@ -690,24 +699,104 @@
         }
 
         .lightbox-content {
-            max-width: 90%;
-            max-height: 90%;
+            display: flex;
+            max-width: 1200px;
+            width: 100%;
+            max-height: 90vh;
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
             position: relative;
         }
 
-        .lightbox-content img {
-            max-width: 100%;
-            max-height: 85vh;
+        .lightbox-image {
+            flex: 1.2;
+            min-width: 0;
+            background: var(--charcoal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            max-height: 80vh;
+        }
+
+        .lightbox-details {
+            flex: 0.8;
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--white);
+            overflow-y: auto;
+        }
+
+        .lightbox-details h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .lightbox-details .lightbox-location {
+            font-size: 16px;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .lightbox-details .lightbox-location svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .lightbox-details .lightbox-description {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--charcoal-light);
+            margin-bottom: 30px;
+        }
+
+        .lightbox-details .lightbox-price {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+            color: var(--white);
+            padding: 20px 25px;
             border-radius: 12px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            margin-top: auto;
+        }
+
+        .lightbox-details .lightbox-price span {
+            display: block;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+
+        .lightbox-details .lightbox-price strong {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--gold);
         }
 
         .lightbox-close {
             position: absolute;
-            top: -50px;
-            right: 0;
-            width: 40px;
-            height: 40px;
+            top: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
             background: var(--white);
             border-radius: 50%;
             display: flex;
@@ -715,28 +804,18 @@
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s;
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
         }
 
         .lightbox-close:hover {
-            background: var(--wood-medium);
+            background: var(--navy);
             color: var(--white);
         }
 
         .lightbox-close svg {
             width: 20px;
             height: 20px;
-        }
-
-        .lightbox-info {
-            display: none;
-        }
-
-        .lightbox-info h3 {
-            display: none;
-        }
-
-        .lightbox-info p {
-            display: none;
         }
 
         /* Animations */
@@ -854,6 +933,59 @@
             .filter-btn {
                 padding: 10px 20px;
                 font-size: 13px;
+            }
+            
+            .lightbox {
+                padding: 20px;
+            }
+            
+            .lightbox-content {
+                flex-direction: column;
+                max-height: 95vh;
+            }
+            
+            .lightbox-image {
+                flex: none;
+                max-height: 40vh;
+            }
+            
+            .lightbox-image img {
+                max-height: 40vh;
+            }
+            
+            .lightbox-details {
+                flex: 1;
+                padding: 25px 20px;
+                overflow-y: auto;
+            }
+            
+            .lightbox-details h3 {
+                font-size: 22px;
+            }
+            
+            .lightbox-details .lightbox-location {
+                font-size: 14px;
+                margin-bottom: 15px;
+            }
+            
+            .lightbox-details .lightbox-description {
+                font-size: 14px;
+                margin-bottom: 20px;
+            }
+            
+            .lightbox-details .lightbox-price {
+                padding: 15px 20px;
+            }
+            
+            .lightbox-details .lightbox-price strong {
+                font-size: 20px;
+            }
+            
+            .lightbox-close {
+                top: 10px;
+                right: 10px;
+                width: 36px;
+                height: 36px;
             }
         }
 
@@ -1001,103 +1133,164 @@
     <!-- Gallery Section -->
     <section class="gallery">
         <div class="container">
+            <p class="gallery-intro">Click each image for more information and typical price ranges</p>
             <div class="gallery-grid">
-                <!-- Featured Project -->
-                <div class="gallery-item featured animate-on-scroll" data-category="decks" onclick="openLightbox(this)">
-                    <img src="images/project-1.jpg" alt="Multi-level Trex Deck">
+                <!-- Project 1 -->
+                <div class="gallery-item featured animate-on-scroll" onclick="openLightbox(this)"
+                    data-title="Trex Deck"
+                    data-location="Lake Villa, IL"
+                    data-description="Trex Rocky Harbor composite decking with matching fascia and white Trex Select T-Rail railings. Built on Crooked Lake in Lake Villa, IL."
+                    data-price="$40,000–$60,000">
+                    <img src="images/project-1.jpg" alt="Trex Deck Lake Villa, IL">
                     <span class="gallery-tag">Featured</span>
                     <div class="gallery-overlay">
-                        <h3>Multi-Level Trex Deck</h3>
-                        <p>Lake County, IL • Trex Transcend</p>
+                        <h3>Trex Deck</h3>
+                        <p>Lake Villa, IL</p>
                     </div>
                 </div>
 
-                <!-- Regular Projects -->
-                <div class="gallery-item animate-on-scroll" data-category="pergolas" onclick="openLightbox(this)">
-                    <img src="images/project-2.jpg" alt="Cedar Pergola">
+                <!-- Project 2 -->
+                <div class="gallery-item animate-on-scroll" onclick="openLightbox(this)"
+                    data-title="Trex Deck"
+                    data-location="Lindenhurst, IL"
+                    data-description="Trex Rocky Harbor composite decking with a combination of TimberTech aluminum cable railing and Trex Select railings."
+                    data-price="$80,000–$120,000">
+                    <img src="images/project-2.jpg" alt="Trex Deck Lindenhurst, IL">
                     <div class="gallery-overlay">
-                        <h3>Cedar Pergola</h3>
-                        <p>McHenry County, IL</p>
+                        <h3>Trex Deck</h3>
+                        <p>Lindenhurst, IL</p>
                     </div>
                 </div>
 
-                <div class="gallery-item animate-on-scroll" data-category="fencing" onclick="openLightbox(this)">
-                    <img src="images/project-3.jpg" alt="Privacy Fence">
+                <!-- Project 3 -->
+                <div class="gallery-item animate-on-scroll" onclick="openLightbox(this)"
+                    data-title="TimberTech Deck"
+                    data-location="Venetian Village, IL"
+                    data-description="TimberTech Natural White Oak composite decking paired with TimberTech Classic aluminum railings in bronze."
+                    data-price="$40,000–$55,000">
+                    <img src="images/project-3.jpg" alt="TimberTech Deck Venetian Village, IL">
                     <div class="gallery-overlay">
-                        <h3>Privacy Fence</h3>
-                        <p>DuPage County, IL</p>
+                        <h3>TimberTech Deck</h3>
+                        <p>Venetian Village, IL</p>
                     </div>
                 </div>
 
-                <div class="gallery-item animate-on-scroll" data-category="decks" onclick="openLightbox(this)">
-                    <img src="images/project-4.jpg" alt="TimberTech Deck">
+                <!-- Project 4 -->
+                <div class="gallery-item animate-on-scroll" onclick="openLightbox(this)"
+                    data-title="Trex Deck"
+                    data-location="Gurnee, IL"
+                    data-description="Trex composite decking in Toasted Sand featuring a custom wraparound step."
+                    data-price="$20,000–$30,000">
+                    <img src="images/project-4.jpg" alt="Trex Deck Gurnee, IL">
                     <div class="gallery-overlay">
-                        <h3>TimberTech Composite</h3>
-                        <p>Kenosha County, WI</p>
+                        <h3>Trex Deck</h3>
+                        <p>Gurnee, IL</p>
                     </div>
                 </div>
 
-                <div class="gallery-item animate-on-scroll" data-category="covered" onclick="openLightbox(this)">
-                    <img src="images/project-5.jpg" alt="Covered Porch">
+                <!-- Project 5 -->
+                <div class="gallery-item animate-on-scroll" onclick="openLightbox(this)"
+                    data-title="Deckorators Deck"
+                    data-location="Highland Park, IL"
+                    data-description="Deckorators Dunewood composite decking with aluminum railings, an integrated gate, and a composite privacy slat wall system."
+                    data-price="$25,000–$30,000">
+                    <img src="images/project-5.jpg" alt="Deckorators Deck Highland Park, IL">
                     <div class="gallery-overlay">
-                        <h3>Covered Porch</h3>
-                        <p>Lake County, IL</p>
+                        <h3>Deckorators Deck</h3>
+                        <p>Highland Park, IL</p>
                     </div>
                 </div>
 
-                <div class="gallery-item animate-on-scroll" data-category="hardscape" onclick="openLightbox(this)">
-                    <img src="images/project-6.jpg" alt="Paver Patio">
+                <!-- Project 6 -->
+                <div class="gallery-item animate-on-scroll" onclick="openLightbox(this)"
+                    data-title="Covered Trex Deck"
+                    data-location="Libertyville, IL"
+                    data-description="Covered deck featuring Trex Honey Grove composite decking, fully wrapped with AZEK PVC trim."
+                    data-price="$50,000–$60,000">
+                    <img src="images/project-6.jpg" alt="Covered Trex Deck Libertyville, IL">
                     <div class="gallery-overlay">
-                        <h3>Paver Patio</h3>
-                        <p>Walworth County, WI</p>
+                        <h3>Covered Trex Deck</h3>
+                        <p>Libertyville, IL</p>
                     </div>
                 </div>
 
-                <div class="gallery-item animate-on-scroll" data-category="decks" onclick="openLightbox(this)">
-                    <img src="images/project-7.jpg" alt="Fiberon Deck">
+                <!-- Project 7 -->
+                <div class="gallery-item animate-on-scroll" onclick="openLightbox(this)"
+                    data-title="Trex Deck"
+                    data-location="Vernon Hills, IL"
+                    data-description="Trex composite decking in Toasted Sand with Trex Select railings in Vintage Lantern."
+                    data-price="$25,000–$30,000">
+                    <img src="images/project-7.jpg" alt="Trex Deck Vernon Hills, IL">
                     <div class="gallery-overlay">
-                        <h3>Fiberon Symmetry Deck</h3>
-                        <p>McHenry County, IL</p>
+                        <h3>Trex Deck</h3>
+                        <p>Vernon Hills, IL</p>
                     </div>
                 </div>
 
-                <div class="gallery-item animate-on-scroll" data-category="pergolas" onclick="openLightbox(this)">
-                    <img src="images/project-8.jpg" alt="Louvered Pergola">
+                <!-- Project 8 -->
+                <div class="gallery-item animate-on-scroll" onclick="openLightbox(this)"
+                    data-title="Trex Pool Deck"
+                    data-location="Round Lake Beach, IL"
+                    data-description="Modern Trex pool deck featuring composite decking and Trex composite railings, with built-in storage underneath."
+                    data-price="$15,000–$20,000">
+                    <img src="images/project-8.jpg" alt="Trex Pool Deck Round Lake Beach, IL">
                     <div class="gallery-overlay">
-                        <h3>Louvered Pergola</h3>
-                        <p>DuPage County, IL</p>
+                        <h3>Trex Pool Deck</h3>
+                        <p>Round Lake Beach, IL</p>
                     </div>
                 </div>
 
-                <div class="gallery-item animate-on-scroll" data-category="fencing" onclick="openLightbox(this)">
-                    <img src="images/project-9.jpg" alt="Vinyl Fence">
+                <!-- Project 9 -->
+                <div class="gallery-item animate-on-scroll" onclick="openLightbox(this)"
+                    data-title="Wood Re-Deck"
+                    data-location="Lake Zurich, IL"
+                    data-description="Pressure-treated wood re-deck replacing existing decking."
+                    data-price="$4,000–$6,000">
+                    <img src="images/project-9.jpg" alt="Wood Re-Deck Lake Zurich, IL">
                     <div class="gallery-overlay">
-                        <h3>Vinyl Privacy Fence</h3>
-                        <p>Lake County, IL</p>
+                        <h3>Wood Re-Deck</h3>
+                        <p>Lake Zurich, IL</p>
                     </div>
                 </div>
 
-                <div class="gallery-item animate-on-scroll" data-category="decks" onclick="openLightbox(this)">
-                    <img src="images/project-10.jpg" alt="Deck with Lighting">
+                <!-- Project 10 -->
+                <div class="gallery-item animate-on-scroll" onclick="openLightbox(this)"
+                    data-title="Cedar Deck"
+                    data-location="Fox Lake, IL"
+                    data-description="Second-story cedar deck featuring custom wood railings."
+                    data-price="$8,000–$12,000">
+                    <img src="images/project-10.jpg" alt="Cedar Deck Fox Lake, IL">
                     <div class="gallery-overlay">
-                        <h3>Deck with LED Lighting</h3>
-                        <p>Kenosha County, WI</p>
+                        <h3>Cedar Deck</h3>
+                        <p>Fox Lake, IL</p>
                     </div>
                 </div>
 
-                <div class="gallery-item animate-on-scroll" data-category="hardscape" onclick="openLightbox(this)">
-                    <img src="images/project-11.jpg" alt="Fire Pit Area">
+                <!-- Project 11 -->
+                <div class="gallery-item animate-on-scroll" onclick="openLightbox(this)"
+                    data-title="Trex Deck"
+                    data-location="Barrington, IL"
+                    data-description="Trex Spiced Rum composite decking with Trex Transcend railings in Vintage Lantern."
+                    data-price="$30,000–$40,000">
+                    <img src="images/project-11.jpg" alt="Trex Deck Barrington, IL">
                     <div class="gallery-overlay">
-                        <h3>Fire Pit & Patio</h3>
-                        <p>McHenry County, IL</p>
+                        <h3>Trex Deck</h3>
+                        <p>Barrington, IL</p>
                     </div>
                 </div>
 
-                <div class="gallery-item animate-on-scroll" data-category="covered" onclick="openLightbox(this)">
-                    <img src="images/project-12.jpg" alt="Screen Porch">
+                <!-- Project 12 -->
+                <div class="gallery-item animate-on-scroll" onclick="openLightbox(this)"
+                    data-title="TimberTech Deck"
+                    data-location="Schaumburg, IL"
+                    data-description="TimberTech composite decking in Dark Cocoa paired with aluminum railings."
+                    data-price="$35,000–$45,000">
+                    <img src="images/project-12.jpg" alt="TimberTech Deck Schaumburg, IL">
                     <div class="gallery-overlay">
-                        <h3>Screened Porch</h3>
-                        <p>Walworth County, WI</p>
+                        <h3>TimberTech Deck</h3>
+                        <p>Schaumburg, IL</p>
+                    </div>
+                </div>
                     </div>
                 </div>
             </div>
@@ -1278,11 +1471,25 @@
 
     <!-- Lightbox -->
     <div class="lightbox" onclick="closeLightbox(event)">
-        <div class="lightbox-content">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
             <div class="lightbox-close" onclick="closeLightbox(event)">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </div>
-            <img src="" alt="" id="lightbox-img">
+            <div class="lightbox-image">
+                <img src="" alt="" id="lightbox-img">
+            </div>
+            <div class="lightbox-details">
+                <h3 id="lightbox-title"></h3>
+                <div class="lightbox-location">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <span id="lightbox-location"></span>
+                </div>
+                <p class="lightbox-description" id="lightbox-description"></p>
+                <div class="lightbox-price">
+                    <span>Approximate Project Cost</span>
+                    <strong id="lightbox-price"></strong>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -1294,36 +1501,20 @@
             document.body.style.overflow = document.querySelector('.mobile-menu').classList.contains('active') ? 'hidden' : '';
         }
 
-        // Filter functionality
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const galleryItems = document.querySelectorAll('.gallery-item');
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Update active button
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                // Filter items
-                const filter = btn.dataset.filter;
-                galleryItems.forEach(item => {
-                    if (filter === 'all' || item.dataset.category === filter) {
-                        item.style.display = 'block';
-                        setTimeout(() => item.style.opacity = '1', 10);
-                    } else {
-                        item.style.opacity = '0';
-                        setTimeout(() => item.style.display = 'none', 400);
-                    }
-                });
-            });
-        });
-
         // Lightbox functionality
         function openLightbox(element) {
             const img = element.querySelector('img');
+            const title = element.dataset.title;
+            const location = element.dataset.location;
+            const description = element.dataset.description;
+            const price = element.dataset.price;
 
             document.getElementById('lightbox-img').src = img.src.replace('w=700', 'w=1400');
             document.getElementById('lightbox-img').alt = img.alt;
+            document.getElementById('lightbox-title').textContent = title;
+            document.getElementById('lightbox-location').textContent = location;
+            document.getElementById('lightbox-description').textContent = description;
+            document.getElementById('lightbox-price').textContent = price;
 
             document.querySelector('.lightbox').classList.add('active');
             document.body.style.overflow = 'hidden';
